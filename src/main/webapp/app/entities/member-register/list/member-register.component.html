@@ -1,0 +1,150 @@
+<div>
+  <h2 id="page-heading" data-cy="MemberRegisterHeading">
+    <span jhiTranslate="asmappApp.memberRegister.home.title">Member Registers</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="asmappApp.memberRegister.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-member-register"
+        [routerLink]="['/member-register/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="asmappApp.memberRegister.home.createLabel"> Create a new Member Register </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="memberRegisters?.length === 0">
+    <span jhiTranslate="asmappApp.memberRegister.home.notFound">No Member Registers found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="memberRegisters && memberRegisters.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="memberNumber">
+            <div class="d-flex">
+              <span jhiTranslate="asmappApp.memberRegister.memberNumber">Member Number</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <div class="d-flex">
+              <span jhiTranslate="asmappApp.memberRegister.lastName">Last Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <div class="d-flex">
+              <span jhiTranslate="asmappApp.memberRegister.firstName">First Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="surName">
+            <div class="d-flex">
+              <span jhiTranslate="asmappApp.memberRegister.surName">Sur Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="registerDate">
+            <div class="d-flex">
+              <span jhiTranslate="asmappApp.memberRegister.registerDate">Register Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+         
+          <th scope="col" jhiSortBy="phoneNumber">
+            <div class="d-flex">
+              <span jhiTranslate="asmappApp.memberRegister.phoneNumber">Phone Number</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="adresse">
+            <div class="d-flex">
+              <span jhiTranslate="asmappApp.memberRegister.adresse">Adresse</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="asmappApp.memberRegister.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="etat">
+            <div class="d-flex">
+              <span jhiTranslate="asmappApp.memberRegister.etat">Etat</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let memberRegister of memberRegisters; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/member-register', memberRegister.id, 'view']">{{ memberRegister.id }}</a>
+          </td>
+          <td>{{ memberRegister.memberNumber }}</td>
+          <td>{{ memberRegister.lastName }}</td>
+          <td>{{ memberRegister.firstName }}</td>
+          <td>{{ memberRegister.surName }}</td>
+          <td>{{ memberRegister.registerDate }}</td>
+          <td>{{ memberRegister.phoneNumber }}</td>
+          <td>{{ memberRegister.adresse }}</td>
+          <td>{{ memberRegister.email }}</td>
+          <td>{{ memberRegister.etat }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/member-register', memberRegister.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">عرض</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/member-register', memberRegister.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">تعديل</span>
+              </button>
+
+              <button type="submit" (click)="delete(memberRegister)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">حذف</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

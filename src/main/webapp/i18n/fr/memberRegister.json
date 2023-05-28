@@ -1,0 +1,32 @@
+{
+  "asmappApp": {
+    "memberRegister": {
+      "home": {
+        "title": "MemberRegisters",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Member Register",
+        "createOrEditLabel": "Créer ou éditer un Member Register",
+        "notFound": "Aucun Member Register trouvé"
+      },
+      "created": "Un nouveau Member Register a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Member Register avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Member Register avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Member Register {{ id }} ?"
+      },
+      "detail": {
+        "title": "Member Register"
+      },
+      "id": "ID",
+      "lastName": "Last Name",
+      "firstName": "First Name",
+      "surName": "Sur Name",
+      "registerDate": "Register Date",
+      "memberNumber": "Member Number",
+      "phoneNumber": "Phone Number",
+      "adresse": "Adresse",
+      "email": "Email",
+      "etat": "Etat"
+    }
+  }
+}

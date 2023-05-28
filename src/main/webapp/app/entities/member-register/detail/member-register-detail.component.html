@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="memberRegister">
+      <h2 data-cy="memberRegisterDetailsHeading"><span jhiTranslate="asmappApp.memberRegister.detail.title">Member Register</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ memberRegister.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="asmappApp.memberRegister.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ memberRegister.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="asmappApp.memberRegister.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ memberRegister.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="asmappApp.memberRegister.surName">Sur Name</span></dt>
+        <dd>
+          <span>{{ memberRegister.surName }}</span>
+        </dd>
+        <dt><span jhiTranslate="asmappApp.memberRegister.registerDate">Register Date</span></dt>
+        <dd>
+          <span>{{ memberRegister.registerDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="asmappApp.memberRegister.memberNumber">Member Number</span></dt>
+        <dd>
+          <span>{{ memberRegister.memberNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="asmappApp.memberRegister.phoneNumber">Phone Number</span></dt>
+        <dd>
+          <span>{{ memberRegister.phoneNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="asmappApp.memberRegister.adresse">Adresse</span></dt>
+        <dd>
+          <span>{{ memberRegister.adresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="asmappApp.memberRegister.email">Email</span></dt>
+        <dd>
+          <span>{{ memberRegister.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="asmappApp.memberRegister.etat">Etat</span></dt>
+        <dd>
+          <span>{{ memberRegister.etat }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">رجوع</span>
+      </button>
+
+      <button type="button" [routerLink]="['/member-register', memberRegister.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">تعديل</span>
+      </button>
+    </div>
+  </div>
+</div>
