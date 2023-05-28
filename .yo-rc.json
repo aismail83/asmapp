@@ -21,7 +21,7 @@
     "enableTranslation": true,
     "entities": ["MemberRegister"],
     "entitySuffix": "",
-    "herokuAppName": null,
+    "herokuAppName": "asmapp",
     "herokuDeployType": "jar",
     "herokuJavaVersion": "11",
     "jhiPrefix": "jhi",
