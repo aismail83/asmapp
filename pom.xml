@@ -24,10 +24,10 @@
 
     <properties>
         <!-- Build properties -->
-        <maven.version>4.0.0</maven.version>
+        <maven.version>3.2.5</maven.version>
         <java.version>11</java.version>
-        <node.version>v18.12.1</node.version>
-        <npm.version>9.2.0</npm.version>
+        <node.version>v16.17.0</node.version>
+        <npm.version>8.19.1</npm.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
