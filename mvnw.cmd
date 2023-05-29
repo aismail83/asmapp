@@ -16,7 +16,6 @@
 @REM specific language governing permissions and limitations
 @REM under the License.
 @REM ----------------------------------------------------------------------------
-set JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-11.0.19.7-hotspot"
 @REM ----------------------------------------------------------------------------
 @REM Maven Start Up Batch script
 @REM
