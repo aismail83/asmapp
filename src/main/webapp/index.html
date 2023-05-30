@@ -100,7 +100,7 @@
           <!-- end of troubleshooting content -->
         </div>
       </div>
-       <button type="button" onclick="showpwa()">install</button>
+       <button type="button" id="buttonInstall">install</button>
     </jhi-main>
           
     <noscript>
@@ -122,7 +122,7 @@
           errorElm.style.display = 'block';
         }
       }
-      function showpwa(){
+      
       let deferredPrompt;
 
             window.addEventListener('beforeinstallprompt', (e) => {
@@ -134,7 +134,20 @@
               showInstallPromotion();
               // Optionally, send analytics event that PWA install promo was shown.
               console.log(`'beforeinstallprompt' event was fired.`);
-            });}
+            });
+
+            buttonInstall.addEventListener('click', async () => {
+              // Hide the app provided install promotion
+              hideInstallPromotion();
+              // Show the install prompt
+              deferredPrompt.prompt();
+              // Wait for the user to respond to the prompt
+              const { outcome } = await deferredPrompt.userChoice;
+              // Optionally, send analytics event with outcome of user choice
+              console.log(`User response to the install prompt: ${outcome}`);
+              // We've used the prompt, and can't use it again, throw it away
+              deferredPrompt = null;
+            });
 
     </script>
     <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
