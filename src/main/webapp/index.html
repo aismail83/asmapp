@@ -123,19 +123,21 @@
           errorElm.style.display = 'block';
         }
       }*/
-      
+      window.addEventListener("load", async () => {
+        
       let installPrompt = null;
 
       window.addEventListener("beforeinstallprompt", (event) => {
         event.preventDefault();
         installPrompt = event;
-        
       });
-      document.addEventListener("load", async () => {
-        
         const result = await installPrompt.prompt();
         console.log(`Install prompt was: ${result.outcome}`);
         installPrompt = null;
+        
+      
+      
+        
       });
     }
     
