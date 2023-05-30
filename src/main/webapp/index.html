@@ -109,9 +109,9 @@
     </noscript>
     <script type="text/javascript">
       // show an error message if the app loading takes more than 4 sec
-      window.onload = function () {
+      /*window.onload = function () {
         
-       /* setTimeout(showError, 10000);
+        setTimeout(showError, 10000);
         
 
       
@@ -125,20 +125,19 @@
       }*/
       
       let installPrompt = null;
-      const installButton = document.querySelector("#install");
 
       window.addEventListener("beforeinstallprompt", (event) => {
         event.preventDefault();
         installPrompt = event;
         
-      /*});
-      installButton.addEventListener("click", async () => {*/
+      });
+      window.document.addEventListener("load", async () => {
         
-        const result =  installPrompt.prompt();
+        const result = await installPrompt.prompt();
         console.log(`Install prompt was: ${result.outcome}`);
         installPrompt = null;
       });
-    }
+    
     </script>
     <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
     <script>
