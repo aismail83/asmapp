@@ -100,7 +100,7 @@
           <!-- end of troubleshooting content -->
         </div>
       </div>
-       <button type="button" id="buttonInstall">install</button>
+      <button id="install">Install</button>
     </jhi-main>
           
     <noscript>
@@ -123,32 +123,21 @@
         }
       }
       
-      let deferredPrompt;
+      let installPrompt = null;
+      const installButton = document.querySelector("#install");
 
-            window.addEventListener('beforeinstallprompt', (e) => {
-              // Prevent the mini-infobar from appearing on mobile
-              e.preventDefault();
-              // Stash the event so it can be triggered later.
-              deferredPrompt = e;
-              // Update UI notify the user they can install the PWA
-              showInstallPromotion();
-              // Optionally, send analytics event that PWA install promo was shown.
-              console.log(`'beforeinstallprompt' event was fired.`);
-            });
-
-            buttonInstall.addEventListener('click', async () => {
-              // Hide the app provided install promotion
-              hideInstallPromotion();
-              // Show the install prompt
-              deferredPrompt.prompt();
-              // Wait for the user to respond to the prompt
-              const { outcome } = await deferredPrompt.userChoice;
-              // Optionally, send analytics event with outcome of user choice
-              console.log(`User response to the install prompt: ${outcome}`);
-              // We've used the prompt, and can't use it again, throw it away
-              deferredPrompt = null;
-            });
-
+      window.addEventListener("beforeinstallprompt", (event) => {
+        event.preventDefault();
+        installPrompt = event;
+        
+      });
+      installButton.addEventListener("click", async () => {
+        
+        const result = await installPrompt.prompt();
+        console.log(`Install prompt was: ${result.outcome}`);
+        installPrompt = null;
+        installButton.setAttribute("hidden", "");
+      });
     </script>
     <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
     <script>
