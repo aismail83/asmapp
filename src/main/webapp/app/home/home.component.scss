@@ -15,7 +15,7 @@ Main page styles
   background: url('../../content/images/home-backgrownd.png') no-repeat center top;
   background-size: contain;
   opacity: 0.2;
-  height:90vh ;
+  height:80vh ;
 }
 
 /* wait autoprefixer update to allow simple generation of high pixel density media query */
@@ -25,12 +25,12 @@ Main page styles
   only screen and (min-resolution: 192dpi),
   only screen and (min-resolution: 2dppx) {
   .hipster {
-    background: url('../../content/images/jhipster_family_member_2.svg') no-repeat center top;
+    background: url('../../content/images/jhipster_family_member_2.svg') no-repeat center;
     background-size: contain;
   }
   .row {
     background: url('../../content/images/home-backgrownd.png') no-repeat center top;
     background-size: contain;
-    height:90vh ;
+    height:80vh ;
   }
 }
