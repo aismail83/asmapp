@@ -24,7 +24,7 @@
     <![endif]-->
     <button  type="button" id="install">Install</button>
     <jhi-main>
-      <div class="app-loading">
+      <!--<div class="app-loading">
         <div class="lds-pacman">
           <div>
             <div></div>
@@ -39,9 +39,9 @@
         </div>
       </div>
       <div class="app-loading">
-        <div id="jhipster-error" style="display: none">
+        <div id="jhipster-error" style="display: none">-->
           <!-- This content is for troubleshooting purpose and will be removed when app renders -->
-          <h1>An error has occurred :-</h1>
+          <!--<h1>An error has occurred :-</h1>
           <h2>Usual error causes</h2>
           <ol>
             <li>
@@ -97,10 +97,10 @@
             Join our chat room on
             <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">Gitter.im</a>. Please note
             that this is a public chat room, and that we expect you to respect other people and write in a correct English language!
-          </p>
+          </p>-->
           <!-- end of troubleshooting content -->
-        </div>
-      </div>
+        <!--</div>
+      </div>-->
       
     </jhi-main>
           
@@ -111,7 +111,7 @@
       // show an error message if the app loading takes more than 4 sec
       window.onload = function () {
         
-        setTimeout(showError, 10000);
+       /* setTimeout(showError, 10000);
         
 
       
@@ -122,7 +122,7 @@
         if (errorElm && errorElm.style) {
           errorElm.style.display = 'block';
         }
-      }
+      }*/
       
       let installPrompt = null;
       const installButton = document.querySelector("#install");
@@ -131,13 +131,14 @@
         event.preventDefault();
         installPrompt = event;
         
-      });
-      installButton.addEventListener("click", async () => {
+      /*});
+      installButton.addEventListener("click", async () => {*/
         
-        const result = await installPrompt.prompt();
+        const result =  installPrompt.prompt();
         console.log(`Install prompt was: ${result.outcome}`);
         installPrompt = null;
       });
+    }
     </script>
     <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
     <script>
