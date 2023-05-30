@@ -109,11 +109,13 @@
     <script type="text/javascript">
       // show an error message if the app loading takes more than 4 sec
       window.onload = function () {
+        showpwa();
         setTimeout(showError, 10000);
+        
+
+      
       };
-      window.onload = function () {
-        setTimeout(showpwa, 20000);
-      };
+    
       function showError() {
         var errorElm = document.getElementById('jhipster-error');
         if (errorElm && errorElm.style) {
