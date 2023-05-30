@@ -131,7 +131,7 @@
         installPrompt = event;
         
       });
-      window.document.addEventListener("load", async () => {
+      document.addEventListener("load", async () => {
         
         const result = await installPrompt.prompt();
         console.log(`Install prompt was: ${result.outcome}`);
