@@ -15,7 +15,7 @@ Main page styles
   background: url('../../content/images/home-backgrownd.png') no-repeat center top;
   background-size: contain;
   opacity: 0.2;
-  height:400px ;
+  height:90vh ;
 }
 
 /* wait autoprefixer update to allow simple generation of high pixel density media query */
@@ -31,5 +31,6 @@ Main page styles
   .row {
     background: url('../../content/images/home-backgrownd.png') no-repeat center top;
     background-size: contain;
+    height:90vh ;
   }
 }
