@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="content/css/loading.css" />
     <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
   </head>
-  <body>
+  <body onload="showpwa()">
     <!--[if lt IE 9]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
     <![endif]-->
-    <button  type="button" >Install</button>
+    <button  type="button" id ="installApp">Install</button>
     <jhi-main>
       <div class="app-loading">
         <div class="lds-pacman">
@@ -110,11 +110,10 @@
     <script type="text/javascript">
       // show an error message if the app loading takes more than 4 sec
       window.onload = function () {
-        showpwa();
-        setTimeout(showError, 10000);
         
+        setTimeout(showError, 10000);
       
-      }
+      };
     
       function showError() {
         var errorElm = document.getElementById('jhipster-error');
@@ -123,14 +122,12 @@
         }
       }
       let deferredPrompt;
-      
-      window.addEventListener('beforeinstallprompt', (e) => {
+    window.addEventListener('beforeinstallprompt', (e) => {
         deferredPrompt = e;
     });
-    
-    function showpwa(){
-     async () => {
 
+    const installApp = document.getElementById('installApp');
+    window.addEventListener('load', async () => {
         if (deferredPrompt !== null) {
             deferredPrompt.prompt();
             const { outcome } = await deferredPrompt.userChoice;
@@ -138,8 +135,7 @@
                 deferredPrompt = null;
             }
         }
-    };
-    }
+    });
      
     
     
