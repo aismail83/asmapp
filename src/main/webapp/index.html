@@ -131,7 +131,7 @@
         installPrompt = event;
       });
 
-      body.addEventListener("load", async () => {
+      document.body.addEventListener("load", async () => {
         const result = await installPrompt.prompt();
         console.log(`Install prompt was: ${result.outcome}`);
         installPrompt = null;
