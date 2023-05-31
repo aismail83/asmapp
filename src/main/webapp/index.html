@@ -112,6 +112,7 @@
       window.onload = function () {
         
         setTimeout(showError, 10000);
+        showpwa();
       
       };
     
@@ -122,6 +123,7 @@
         }
       }
       let deferredPrompt;
+      function showpwa(){
       window.addEventListener('beforeinstallprompt', (e) => {
         deferredPrompt = e;
     }).addEventListener('load', async () => {
@@ -134,6 +136,7 @@
             }
         }
     });
+  }
      
     
     
