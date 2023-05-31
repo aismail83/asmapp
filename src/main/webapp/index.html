@@ -122,11 +122,18 @@
         }
       }
       let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
+    window.addEventListener('beforeinstallprompt', async(e) => {
         deferredPrompt = e;
+        if (deferredPrompt !== null) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          if (outcome === 'accepted') {
+              deferredPrompt = null;
+          }
+      }
     });
 
-    const installApp = document.getElementById('installApp');
+   /* const installApp = document.getElementById('installApp');
     window.addEventListener('load', async () => {
         if (deferredPrompt !== null) {
             deferredPrompt.prompt();
@@ -135,7 +142,7 @@
                 deferredPrompt = null;
             }
         }
-    });
+    });*/
      
     
     
