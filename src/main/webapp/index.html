@@ -122,7 +122,7 @@
         }
       }
       let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', async(e) => {
+    window.addEventListener('beforeinstallprompt', (e) => {
         deferredPrompt = e;
     }).addEventListener('load', async () => {
       if (deferredPrompt !== null) {
