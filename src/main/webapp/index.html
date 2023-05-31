@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="content/css/loading.css" />
     <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
   </head>
-  <body onload="showpwa()">
+  <body id="installApp">
     <!--[if lt IE 9]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
     <![endif]-->
-    <button  type="button" id="installApp">Install</button>
+    <button  type="button" >Install</button>
     <jhi-main>
       <div class="app-loading">
         <div class="lds-pacman">
@@ -127,7 +127,7 @@
     });
 
     const installApp = document.getElementById('installApp');
-    installApp.addEventListener('click', async () => {
+    installApp.addEventListener('load', async () => {
         if (deferredPrompt !== null) {
             deferredPrompt.prompt();
             const { outcome } = await deferredPrompt.userChoice;
