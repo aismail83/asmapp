@@ -150,3 +150,13 @@
   -webkit-animation-delay: 0s;
   animation-delay: 0s;
 }
+
+#istallpwa {
+  position: absolute;
+  width: 250px;
+  height: 100px;
+  top: 300px;
+  left: auto;
+  border: 1px dashed #990;
+  
+}

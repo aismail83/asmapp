@@ -15,14 +15,18 @@
     <link rel="stylesheet" href="content/css/loading.css" />
     <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
   </head>
-  <body onload="showpwa()">
+  <body>
     <!--[if lt IE 9]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve
         your experience.
       </p>
     <![endif]-->
-    <button  type="button" id ="installApp">Install</button>
+    <div id="installpwa" hidden>
+      <p>Voulez vous installer l'appliction sur vôtre appareil?</p>
+    <button  type="button" id ="installApp">Installer</button>
+    <button  type="button" id ="annullApp">annuler</button>
+    </div>
     <jhi-main>
       <div class="app-loading">
         <div class="lds-pacman">
@@ -122,9 +126,15 @@
         }
       }
       let deferredPrompt;
+      const installApp = document.getElementById('installApp');
+      const annullApp = document.getElementById('annullApp');
+      const installpwa = document.getElementById('installpwa');
     window.addEventListener('beforeinstallprompt', (e) => {
         deferredPrompt = e;
-    }).addEventListener('load', async () => {
+        installpwa.hidden=false;
+    });
+     
+    installApp.addEventListener('click', async () => {
       if (deferredPrompt !== null) {
           deferredPrompt.prompt();
           const { outcome } = await deferredPrompt.userChoice;
@@ -133,6 +143,10 @@
           }
       }
   });
+  annullApp.addEventListener('click',  () => {
+    installpwa.hidden=false;
+  });
+
 
    /* const installApp = document.getElementById('installApp');*/
     window
