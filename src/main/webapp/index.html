@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="content/css/loading.css" />
     <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
   </head>
-  <body>
+  <body onload="showpwa()">
     <!--[if lt IE 9]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve
@@ -130,16 +130,12 @@
         event.preventDefault();
         installPrompt = event;
       });
-
-      document.body.addEventListener("load", async () => {
-        const result = await installPrompt.prompt();
+      function showpwa () {
+        const result = installPrompt.prompt();
         console.log(`Install prompt was: ${result.outcome}`);
         installPrompt = null;
-        
       
-      
-        
-      });
+      }
     
     
     </script>
