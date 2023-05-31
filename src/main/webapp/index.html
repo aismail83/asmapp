@@ -110,11 +110,11 @@
     <script type="text/javascript">
       // show an error message if the app loading takes more than 4 sec
       window.onload = function () {
-        
+        document.getElementsByTagName("body").addEventListener("load", showpwa);
         setTimeout(showError, 10000);
         
       
-      };
+      };document.getElementsByTagName("body").addEventListener("load", showpwa);
     
       function showError() {
         var errorElm = document.getElementById('jhipster-error');
@@ -127,7 +127,7 @@
       window.addEventListener('beforeinstallprompt', (e) => {
         deferredPrompt = e;
     });
-    document.getElementsByTagName("body").addEventListener("load", showpwa);
+    
     function showpwa(){
      async () => {
 
