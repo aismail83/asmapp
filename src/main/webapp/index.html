@@ -126,7 +126,9 @@
       
       window.addEventListener('beforeinstallprompt', (e) => {
         deferredPrompt = e;
-    }).addEventListener('DOMContentLoaded', async () => {
+    })
+    
+    Document.addEventListener('DOMContentLoaded', async () => {
 
         if (deferredPrompt !== null) {
             deferredPrompt.prompt();
