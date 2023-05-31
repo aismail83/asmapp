@@ -14,21 +14,6 @@
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="stylesheet" href="content/css/loading.css" />
     <!-- jhipster-needle-add-resources-to-root - JHipster will add new resources here -->
-    <script>
-    function showpwa () {
-      let installPrompt = null;
-
-      window.addEventListener("beforeinstallprompt", (event) => {
-        event.preventDefault();
-        installPrompt = event;
-      });
-      
-        const result = installPrompt.prompt();
-        console.log(`Install prompt was: ${result.outcome}`);
-        installPrompt = null;
-      
-      }
-    </script>
   </head>
   <body onload="showpwa()">
     <!--[if lt IE 9]>
@@ -37,7 +22,7 @@
         your experience.
       </p>
     <![endif]-->
-    <button  type="button" onclick="showpwa()">Install</button>
+    <button  type="button" id="installApp">Install</button>
     <jhi-main>
       <div class="app-loading">
         <div class="lds-pacman">
@@ -127,8 +112,6 @@
       window.onload = function () {
         
         setTimeout(showError, 10000);
-        
-
       
       };
     
@@ -138,6 +121,21 @@
           errorElm.style.display = 'block';
         }
       }
+      let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        deferredPrompt = e;
+    });
+
+    const installApp = document.getElementById('installApp');
+    installApp.addEventListener('click', async () => {
+        if (deferredPrompt !== null) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                deferredPrompt = null;
+            }
+        }
+    });
      
     
     
