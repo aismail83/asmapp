@@ -158,5 +158,6 @@
   top: 300px;
   left: auto;
   border: 1px dashed #990;
+  z-index: 7;
   
 }
