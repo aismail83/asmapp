@@ -156,12 +156,17 @@
   width: 250px;
   height: 100px;
   top: 150px;
-  left: auto;
-  right: auto;
+  margin-left: auto;
+  margin-right: auto;
   border: 1px dashed #990;
   z-index: 7;
   
 }
 #annullApp{
+  position: relative;
   float: right;
+}
+#installApp{
+  position: relative;
+  float: left;
 }
