@@ -156,8 +156,7 @@
   width: 250px;
   height: 100px;
   top: 150px;
-  margin-left: auto;
-  margin-right: auto;
+  left: 50%;
   border: 1px dashed #990;
   z-index: 7;
   
