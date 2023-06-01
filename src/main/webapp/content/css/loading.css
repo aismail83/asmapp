@@ -153,19 +153,29 @@
 
 #installpwa,#installpwa {
   position: absolute;
-  width: 300px;
-  height: 150px;
+  width: 250px;
+  height: 70px;
   top: 150px;
-  left: 50%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   border: 1px dashed #990;
   z-index: 7;
+  font-size: 10PX;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: normal;
+  text-align: center;
   
 }
-#annullApp{
+#annullApp,#installApp{
   position: relative;
   float: right;
+margin-top:10px ;
+  border:0px ;
 }
 #installApp{
-  position: relative;
   float: left;
+}
+#annullApp{
+  float: right;
 }
