@@ -153,8 +153,8 @@
 
 #installpwa,#installpwasec {
   position: absolute;
-  width: 250px;
-  height: 80px;
+  width: 240px;
+  height: 30px;
   top: 150px;
   left: 0;
   right: 0;
@@ -164,12 +164,13 @@
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-style: normal;
   text-align: center;
+  direction: ltr;
   
 }
 #annullApp,#installApp{
   position: relative;
   float: right;
-  margin-top:10px ;
+  margin-top:0px ;
   border:0px ;
 }
 #installApp{
