@@ -151,10 +151,10 @@
   animation-delay: 0s;
 }
 
-#installpwa {
+#installpwa,#installpwa {
   position: absolute;
-  width: 250px;
-  height: 100px;
+  width: 300px;
+  height: 150px;
   top: 150px;
   left: 50%;
   border: 1px dashed #990;

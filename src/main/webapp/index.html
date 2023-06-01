@@ -23,11 +23,15 @@
       </p>
     <![endif]-->
     <div id="installpwa" hidden>
-      <p>Voulez vous installer l'application sur vôtre appareil?</p>
-      <p>هل تريد تثبت هذة التطبيق غلي جوالك</p>
-    <button  type="button" id ="installApp">Installer</button>
-    <button  type="button" id ="annullApp">annuler</button>
+        <p>Voulez vous installer l'application sur vôtre appareil?</p>
+        <p>هل تريد تثبت هذة التطبيق غلي جوالك؟</p>
+        <button  type="button" id ="installApp">Installer</button>
+        <button  type="button" id ="annullApp">annuler</button>
     </div>
+    <div id="installpwa">
+        <p  hidden>Téléchargé avec succès</p>
+        <p id="installpwa" hidden>تم التنزيل بجاح</p>
+  </div>
     <jhi-main>
       <div class="app-loading">
         <div class="lds-pacman">
@@ -116,7 +120,7 @@
       // show an error message if the app loading takes more than 4 sec
       window.onload = function () {
         
-        setTimeout(showError, 10000);
+        setTimeout(showError, 4000);
       
       };
     
@@ -141,16 +145,15 @@
           const { outcome } = await deferredPrompt.userChoice;
           if (outcome === 'accepted') {
               deferredPrompt = null;
+              installpwa.hidden=true;
+              installpwa.hidden=flase;
+              setTimeout(()=>{installpwa.hidden=true; },3000);
           }
       }
   });
   annullApp.addEventListener('click',  () => {
     installpwa.hidden=true;
   });
-
-
-   /* const installApp = document.getElementById('installApp');*/
-    window
      
     
     
