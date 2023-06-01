@@ -9,7 +9,7 @@ import { FindLanguageFromKeyPipe } from 'app/shared/language/find-language-from-
 
 @Component({
   selector: 'jhi-main',
-  templateUrl: './main.component.html',
+  templateUrl: './main.component.html'
 })
 export class MainComponent implements OnInit {
   private renderer: Renderer2;

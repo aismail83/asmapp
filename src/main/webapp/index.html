@@ -112,6 +112,9 @@
       </div>
       
     </jhi-main>
+    <div id="footer">
+      <jhi-footer></jhi-footer>
+      </div>
           
     <noscript>
       <h1>You must enable JavaScript to view this page.</h1>
@@ -146,7 +149,7 @@
           if (outcome === 'accepted') {
               deferredPrompt = null;
               installpwa.hidden=true;
-              installpwasec.hidden=flase;
+              installpwasec.hidden=false;
               setTimeout(()=>{installpwasec.hidden=true; },3000);
           }
       }

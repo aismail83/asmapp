@@ -179,3 +179,12 @@
 #annullApp{
   float: right;
 }
+#footer{
+  font-size: 9px;
+  text-align: center;
+  direction: ltr;
+  float:left;
+  left:0;
+  width: 100%;
+  
+}
