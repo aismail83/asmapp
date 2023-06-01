@@ -159,7 +159,6 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  border: 1px dashed #990;
   z-index: 7;
   font-size: 10PX;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -170,7 +169,7 @@
 #annullApp,#installApp{
   position: relative;
   float: right;
-margin-top:10px ;
+  margin-top:10px ;
   border:0px ;
 }
 #installApp{
