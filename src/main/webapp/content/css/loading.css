@@ -155,9 +155,13 @@
   position: absolute;
   width: 250px;
   height: 100px;
-  top: 300px;
+  top: 150px;
   left: auto;
+  right: auto;
   border: 1px dashed #990;
   z-index: 7;
   
+}
+#annullApp{
+  float: right;
 }
