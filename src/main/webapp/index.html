@@ -28,7 +28,7 @@
         <button  type="button" id ="installApp">Installer</button>
         <button  type="button" id ="annullApp">annuler</button>
     </div>
-    <div id="installpwa"  hidden>
+    <div id="installpwasec"  hidden>
         <p>Téléchargé avec succès<br>
         تم تنزيل بنجاح</p>
   </div>
@@ -146,8 +146,8 @@
           if (outcome === 'accepted') {
               deferredPrompt = null;
               installpwa.hidden=true;
-              installpwa.hidden=flase;
-              setTimeout(()=>{installpwa.hidden=true; },3000);
+              installpwasec.hidden=flase;
+              setTimeout(()=>{installpwasec.hidden=true; },3000);
           }
       }
   });
