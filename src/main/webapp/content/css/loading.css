@@ -215,8 +215,9 @@
   direction: ltr;
   width: 100%;
   height: max-content;
-  position:absolute;
-  top: 97vh;
+  position:fixed;
+  top: 94vh;
+  background-color: aliceblue;
 
 }
 
