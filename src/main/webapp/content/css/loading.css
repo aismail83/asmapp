@@ -229,3 +229,13 @@
   font-size: small;
   
 }
+#navbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 7;
+}
+#containmain{
+  position: relative;
+  top: 10vh;
+}
