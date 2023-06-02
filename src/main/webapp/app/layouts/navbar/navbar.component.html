@@ -136,7 +136,7 @@
             </li>
           </ul>
         </li>
-        <li
+        <!--<li
           ngbDropdown
           class="nav-item dropdown pointer"
           display="dynamic"
@@ -176,20 +176,20 @@
                 <fa-icon icon="lock" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.account.password">كلمه السر</span>
               </a>
-            </li>
-            <li *ngSwitchCase="true">
-              <a class="dropdown-item" (click)="logout()" id="logout" data-cy="logout">
+            </li>-->
+            <li *ngSwitchCase="true" class="nav-item">
+              <a class="nav-link" (click)="logout()" id="logout" data-cy="logout">
                 <fa-icon icon="sign-out-alt" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.account.logout">تسجيل الخروج</span>
               </a>
             </li>
-            <li *ngSwitchCase="false">
-              <a class="dropdown-item" (click)="login()" id="login" data-cy="login">
+            <li *ngSwitchCase="false" class="nav-item">
+              <a class="nav-link" (click)="login()" id="login" data-cy="login">
                 <fa-icon icon="sign-in-alt" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.account.login">تسجيل الدخول</span>
               </a>
             </li>
-            <li *ngSwitchCase="false">
+           <!--<li *ngSwitchCase="false">
               <a
                 class="dropdown-item"
                 routerLink="account/register"
@@ -202,7 +202,7 @@
               </a>
             </li>
           </ul>
-        </li>
+        </li>-->
       </ul>
     </div>
   </div>
