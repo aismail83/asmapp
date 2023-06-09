@@ -15,6 +15,7 @@ import { SharedModule } from 'app/shared/shared.module';
 import { TranslationModule } from 'app/shared/language/translation.module';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
+import { LoginModule } from './login/login.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { NgbDateDayjsAdapter } from './config/datepicker-adapter';
 import { fontAwesomeIcons } from './config/font-awesome-icons';
@@ -33,6 +34,7 @@ import { MembreModule } from './membre-management/membre.module';
     BrowserModule,
     SharedModule,
     HomeModule,
+    LoginModule,
     MembreModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     AppRoutingModule,
