@@ -6,6 +6,7 @@ import { isPresent } from 'app/core/util/operators';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';
 import { IMemberRegister, NewMemberRegister } from '../member-register.model';
+import { Account } from 'app/core/auth/account.model';
 
 export type PartialUpdateMemberRegister = Partial<IMemberRegister> & Pick<IMemberRegister, 'id'>;
 
@@ -15,11 +16,12 @@ export type EntityArrayResponseType = HttpResponse<IMemberRegister[]>;
 @Injectable({ providedIn: 'root' })
 export class MemberRegisterService {
   protected resourceUrl = this.applicationConfigService.getEndpointFor('api/member-registers');
-
+  
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) {}
 
   create(memberRegister: NewMemberRegister): Observable<EntityResponseType> {
     return this.http.post<IMemberRegister>(this.resourceUrl, memberRegister, { observe: 'response' });
+   
   }
 
   update(memberRegister: IMemberRegister): Observable<EntityResponseType> {

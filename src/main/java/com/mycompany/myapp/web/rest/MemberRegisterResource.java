@@ -63,6 +63,7 @@ public class MemberRegisterResource {
         if (memberRegisterDTO.getId() != null) {
             throw new BadRequestAlertException("A new memberRegister cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        memberRegisterService.saveAcces(memberRegisterDTO);
         MemberRegisterDTO result = memberRegisterService.save(memberRegisterDTO);
         return ResponseEntity
             .created(new URI("/api/member-registers/" + result.getId()))

@@ -1,5 +1,5 @@
 <nav data-cy="navbar" id="navbar" class="navbar navbar-dark navbar-expand-md bg-primary">
-  <div class="container-fluid">
+  <div class="container-fluid" id="navbardv">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
       <span class="logo-img"></span>
       <span jhiTranslate="global.title" class="navbar-title" id="nabartitle">الرابطة السودانية بمقاطعة مايين</span>
@@ -178,13 +178,13 @@
               </a>
             </li>-->
             <li *ngSwitchCase="true" class="nav-item">
-              <a class="nav-link" (click)="logout()" id="logout" data-cy="logout">
+              <a class="nav-link" (click)="logout()" id="logout" (click)="collapseNavbar()" data-cy="logout">
                 <fa-icon icon="sign-out-alt" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.account.logout">تسجيل الخروج</span>
               </a>
             </li>
             <li *ngSwitchCase="false" class="nav-item">
-              <a class="nav-link" (click)="login()" id="login" data-cy="login">
+              <a class="nav-link" (click)="login()" id="login" (click)="collapseNavbar()" data-cy="login">
                 <fa-icon icon="sign-in-alt" [fixedWidth]="true"></fa-icon>
                 <span jhiTranslate="global.menu.account.login">تسجيل الدخول</span>
               </a>

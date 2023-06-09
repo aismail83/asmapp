@@ -18,9 +18,8 @@ public class AdminUserDTO implements Serializable {
 
     private Long id;
 
-    @NotBlank
-    @Pattern(regexp = Constants.LOGIN_REGEX)
-    @Size(min = 1, max = 50)
+    @Email
+    @Size(min = 5, max = 254)
     private String login;
 
     @Size(max = 50)
@@ -28,6 +27,9 @@ public class AdminUserDTO implements Serializable {
 
     @Size(max = 50)
     private String lastName;
+    @NotNull
+    @Size(min = 60, max = 60)
+    private String password;
 
     @Email
     @Size(min = 5, max = 254)
@@ -60,6 +62,7 @@ public class AdminUserDTO implements Serializable {
         this.login = user.getLogin();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
+        this.password = user.getPassword();
         this.email = user.getEmail();
         this.activated = user.isActivated();
         this.imageUrl = user.getImageUrl();
@@ -101,6 +104,13 @@ public class AdminUserDTO implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {

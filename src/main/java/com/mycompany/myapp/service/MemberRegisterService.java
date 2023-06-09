@@ -1,9 +1,15 @@
 package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.domain.MemberRegister;
+import com.mycompany.myapp.domain.User;
 import com.mycompany.myapp.repository.MemberRegisterRepository;
+import com.mycompany.myapp.repository.UserRepository;
 import com.mycompany.myapp.service.dto.MemberRegisterDTO;
+import com.mycompany.myapp.service.dto.AdminUserDTO;
 import com.mycompany.myapp.service.mapper.MemberRegisterMapper;
+import com.mycompany.myapp.service.mapper.UserMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import tech.jhipster.security.RandomUtil;
 import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,12 +35,19 @@ public class MemberRegisterService {
     private final Logger log = LoggerFactory.getLogger(MemberRegisterService.class);
 
     private final MemberRegisterRepository memberRegisterRepository;
-
+    private final UserMapper userMapper;
     private final MemberRegisterMapper memberRegisterMapper;
+    private final UserRepository  userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public MemberRegisterService(MemberRegisterRepository memberRegisterRepository, MemberRegisterMapper memberRegisterMapper) {
+    public MemberRegisterService(MemberRegisterRepository memberRegisterRepository, 
+    MemberRegisterMapper memberRegisterMapper,UserRepository userRepository, 
+    UserMapper userMapper,PasswordEncoder passwordEncoder) {
         this.memberRegisterRepository = memberRegisterRepository;
         this.memberRegisterMapper = memberRegisterMapper;
+        this.userMapper = userMapper;
+        this.userRepository = userRepository;
+        this.passwordEncoder= passwordEncoder;
     }
 
     /**
@@ -62,9 +75,23 @@ public class MemberRegisterService {
         String  membreNumbreMonthstr = outmonth.format(membreNumbreYear);
         memberRegisterDTO.setMemberNumber(membreNumbreYearstr+membreNumbreMonthstr+idto);
         MemberRegister memberRegister = memberRegisterMapper.toEntity(memberRegisterDTO);
-       
         memberRegister = memberRegisterRepository.save(memberRegister);
+
         return memberRegisterMapper.toDto(memberRegister);
+
+    }
+        public AdminUserDTO saveAcces(MemberRegisterDTO memberRegisterDTO) {
+            log.debug("Request to save MemberRegister : {}", memberRegisterDTO);
+            String encryptedPassword = passwordEncoder.encode(RandomUtil.generatePassword());
+        AdminUserDTO userDTO = new AdminUserDTO();
+        userDTO.setLogin(memberRegisterDTO.getEmail().toLowerCase());
+        userDTO.setFirstName(memberRegisterDTO.getFirstName());
+        userDTO.setPassword(encryptedPassword);
+        userDTO.setLastName(memberRegisterDTO.getLastName());
+        userDTO.setEmail(memberRegisterDTO.getEmail().toLowerCase());
+        User user = userMapper.userDTOToUser(userDTO);
+         user =userRepository.save(user);
+        return  userMapper.userToAdminUserDTO(user);
     }
 
     

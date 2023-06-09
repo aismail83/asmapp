@@ -3,7 +3,7 @@
     "title": "تسجيل الدخول",
     "form": {
       "password": "كلمه السر",
-      "password.placeholder": "كلمة السر خاصتك",
+      "password.placeholder": "كلمة السر ",
       "rememberme": "تذكرنى",
       "button": "تسجيل الدخول"
     },

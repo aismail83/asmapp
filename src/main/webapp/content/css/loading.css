@@ -230,14 +230,15 @@
   
 }
 #navbar{
-  
+  top: 0px;
   width: 100%;
+  position: fixed;
+  z-index: 4;
   
 }
+
 #containmain{
-  background: url('../../content/images/home-backgrownd.png') no-repeat center;
-  background-size: contain;
-  opacity: 1;
-  
+  margin-top:100px;
   
 }
+
