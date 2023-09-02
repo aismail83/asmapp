@@ -10,7 +10,6 @@ import { PasswordResetInitComponent } from './password-reset/init/password-reset
 import { PasswordResetFinishComponent } from './password-reset/finish/password-reset-finish.component';
 import { SettingsComponent } from './settings/settings.component';
 import { accountState } from './account.route';
-import { MemberRegisreComponent } from './member-regisre/member-regisre.component';
 
 
 @NgModule({
@@ -23,7 +22,6 @@ import { MemberRegisreComponent } from './member-regisre/member-regisre.componen
     PasswordResetInitComponent,
     PasswordResetFinishComponent,
     SettingsComponent,
-    MemberRegisreComponent,
   ],
 })
 export class AccountModule {}

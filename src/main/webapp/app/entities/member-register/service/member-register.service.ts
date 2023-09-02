@@ -6,7 +6,6 @@ import { isPresent } from 'app/core/util/operators';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';
 import { IMemberRegister, NewMemberRegister } from '../member-register.model';
-import { Account } from 'app/core/auth/account.model';
 
 export type PartialUpdateMemberRegister = Partial<IMemberRegister> & Pick<IMemberRegister, 'id'>;
 

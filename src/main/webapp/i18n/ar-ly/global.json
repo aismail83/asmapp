@@ -34,8 +34,8 @@
       "language": "اللغة"
     },
     "form": {
-      "username.label": "اسم المستخدم",
-      "username.placeholder": "إسم المستخدم الخاص بك",
+      "username.label": "البريد الإلكتروني",
+      "username.placeholder": "البريد الإلكتروني",
       "currentpassword.label": "Current password",
       "currentpassword.placeholder": "Current password",
       "newpassword.label": "كلمة السر الجديدة",

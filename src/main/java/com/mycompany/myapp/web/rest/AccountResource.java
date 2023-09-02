@@ -1,14 +1,11 @@
 package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.domain.User;
-import com.mycompany.myapp.domain.Membre;
 import com.mycompany.myapp.repository.UserRepository;
 import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.service.MailService;
 import com.mycompany.myapp.service.UserService;
-import com.mycompany.myapp.service.MembreService;
 import com.mycompany.myapp.service.dto.AdminUserDTO;
-import com.mycompany.myapp.service.dto.MembreDTO;
 import com.mycompany.myapp.service.dto.PasswordChangeDTO;
 import com.mycompany.myapp.web.rest.errors.*;
 import com.mycompany.myapp.web.rest.vm.KeyAndPasswordVM;
@@ -43,13 +40,12 @@ public class AccountResource {
     private final UserService userService;
 
     private final MailService mailService;
-    private final MembreService membreService;
+    
 
-    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService,MembreService membreService) {
+    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService) {
         this.userRepository = userRepository;
         this.userService = userService;
         this.mailService = mailService;
-        this.membreService=membreService;
     }
 
     /**
@@ -70,11 +66,7 @@ public class AccountResource {
         mailService.sendActivationEmail(user);
     }
     
-    @PostMapping("/regisre")
-    @ResponseStatus(HttpStatus.CREATED)
-    public void registreMembre(@Valid @RequestBody MembreDTO membreDTO) {
-        Membre newmMembre = membreService.registerMembre(membreDTO);
-       }
+    
 
     /**
      * {@code GET  /activate} : activate the registered user.

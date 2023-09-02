@@ -52,9 +52,9 @@ spring:
       # it can be set to any label, branch or commit of the configuration source Git repository
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/asmapp?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
-    username: root
-    password:
+    url: jdbc:mysql://cb5lpo85626wlsiq:shnzsehnb5e4gq4u@oliadkuxrl9xdugh.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/f0e2e4xieyffopb2
+    username: cb5lpo85626wlsiq
+    password:shnzsehnb5e4gq4u
     hikari:
       poolName: Hikari
       auto-commit: false

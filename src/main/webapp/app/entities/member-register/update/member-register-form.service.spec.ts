@@ -1,15 +1,17 @@
 import { TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { sampleWithRequiredData, sampleWithNewData } from '../member-register.test-samples';
 
 import { MemberRegisterFormService } from './member-register-form.service';
 
 describe('MemberRegister Form Service', () => {
   let service: MemberRegisterFormService;
+  
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({imports: [HttpClientTestingModule],});
     service = TestBed.inject(MemberRegisterFormService);
+    
   });
 
   describe('Service methods', () => {
@@ -24,7 +26,6 @@ describe('MemberRegister Form Service', () => {
             firstName: expect.any(Object),
             surName: expect.any(Object),
             registerDate: expect.any(Object),
-            memberNumber: expect.any(Object),
             phoneNumber: expect.any(Object),
             adresse: expect.any(Object),
             email: expect.any(Object),
@@ -43,7 +44,6 @@ describe('MemberRegister Form Service', () => {
             firstName: expect.any(Object),
             surName: expect.any(Object),
             registerDate: expect.any(Object),
-            memberNumber: expect.any(Object),
             phoneNumber: expect.any(Object),
             adresse: expect.any(Object),
             email: expect.any(Object),
